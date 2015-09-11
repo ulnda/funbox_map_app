@@ -6,7 +6,10 @@ html ng-app="app"
     base href="/"
     title FunBox Map App
     link rel="stylesheet" href="css/bower_components.css"
+    link rel="stylesheet" href="css/main.css"
   body
-    .admin-navigation ng-include="'templates/_navbar.html'"
+    .navigation ng-include="'templates/_navbar.html'"
+    .container
+      .ui-view
     script src="js/bower_components.js"
     script src="js/main.js"
