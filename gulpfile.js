@@ -96,5 +96,5 @@ gulp.task('server', function() {
 
 // Default task
 gulp.task('default', function() {
-  runSequence(['styles', 'scripts', 'images', 'bower_components', 'templates'], 'server', 'watch')
+  runSequence(['styles', 'scripts', 'images', 'bower_components'], 'templates', 'server', 'watch')
 })
