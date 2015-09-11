@@ -1,4 +1,12 @@
-.markers {
+.points-menu {
   float: left;
   width: 300px;
+
+  .points {
+    margin-top: 5px;
+  }
+
+  .new-point input {
+    width: 100%;
+  }
 }
