@@ -28,6 +28,17 @@ $delimiter-width: 10px;
         min-height: 42px;
       }
     }
+
+    span.remove-point {
+      cursor: pointer;
+      float: right;
+    }
+
+    .without-points {
+      p {
+        font-weight: bold
+      }
+    }
   }
 
   .new-point input {

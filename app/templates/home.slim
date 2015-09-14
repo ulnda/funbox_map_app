@@ -3,9 +3,14 @@
     .form
       input.form-control type="text" placeholder="Введите название точки маршрута" ng-model="point.label" ng-keyup="$event.keyCode == 13 && addNewPoint()"
   .points
-    ul.list-group dnd-list="points"
-      li.list-group-item ng-repeat="p in points" dnd-draggable="p" dnd-effect-allowed="move" dnd-selected="selectedPoint = p" dnd-moved="points.splice($index, 1)"
-        edit-in-place data-value="p"
+    .with-points ng-show="points.length"
+      ul.list-group dnd-list="points"
+        li.list-group-item ng-repeat="p in points" dnd-draggable="p" dnd-effect-allowed="move" dnd-selected="selectedPoint = p" dnd-moved="points.splice($index, 1)"
+          edit-in-place data-value="p"
+          span.glyphicon.glyphicon-remove.remove-point ng-click="removePoint(p)"
+    .without-points
+      p ng-hide="points.length"
+        | Список точек пуст.
 .map
   ui-gmap-google-map center='map.center' zoom='map.zoom' events='map.events'
     ui-gmap-markers models="markers" coords="'self'" icon="'icon'" click="markerClick"
