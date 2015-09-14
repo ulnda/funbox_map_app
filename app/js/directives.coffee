@@ -1,8 +1,9 @@
 angular.module('app.directives', []).directive('editInPlace', ->
 
-  restrict: 'E',
-  scope: { value: '=' },
-  template: '<span ng-dblclick="activate()" ng-bind="value.label"></span><input ng-model="newValue"></input>',
+  restrict: 'E'
+  scope: { value: '=' }
+  template: '<span ng-dblclick="activate()" ng-bind="value.label">' + 
+    '</span><input ng-model="newValue"></input>'
   link: ($scope, element, attrs) ->
     ENTER_KEYCODE = 13
     ESCAPE_KEYCODE = 27
