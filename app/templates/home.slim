@@ -13,4 +13,5 @@
         | Список точек пуст.
 .map
   ui-gmap-google-map center='options.map.center' zoom='options.map.zoom'
-    ui-gmap-markers models="points" coords="'self'" options="options.point" icon="'icon'" events="options.point.events"
+    ui-gmap-markers models="points" coords="'self'" options="options.point" icon="'icon'" click="clickByPoint"
+    ui-gmap-polyline path="options.route.path" stroke="options.route.stroke" visible='options.route.visible' geodesic='options.route.geodesic' fit="false" editable="options.route.editable" draggable="options.route.draggable" static='true'

@@ -1,9 +1,11 @@
 angular.module('app.controllers', []).controller('HomeController', ['$scope',
   '$modal', ($scope, $modal) ->
 
-    ICON_MARKER = 'img/marker.png'
+    lastPointId = 0
 
     $scope.points = []
+    $scope.point = {}
+
     $scope.options =
       map:
         center:
@@ -11,13 +13,22 @@ angular.module('app.controllers', []).controller('HomeController', ['$scope',
           longitude: -73
         zoom: 16
       point:
+        icon: 'img/marker.png'
         draggable: true
+      route: 
+        path: $scope.points
+        stroke:
+          color: '#FF0066'
+          weight: 3
+        editable: false
+        draggable: false
+        geodesic: false
+        visible: true
 
     $scope.addNewPoint = ->
       if $scope.point.label
-        $scope.point.icon = ICON_MARKER
-        $scope.point.id = $scope.points.length
         angular.extend($scope.point, $scope.options.map.center)
+        $scope.point.id = lastPointId++
         $scope.points.push angular.copy($scope.point)
         $scope.point = {}
     $scope.removePoint = (point) ->
@@ -30,12 +41,8 @@ angular.module('app.controllers', []).controller('HomeController', ['$scope',
             $scope.points
           point: ->
             point
-
-    $scope.options.point.events = {}
-    $scope.options.point.events.click = (marker, eventName, model) ->
+    $scope.clickByPoint = (marker, eventName, model) ->
       console.log('click:' + model.label)
-    $scope.options.point.events.dragend = (marker, eventName, model) ->
-      console.log('drag:' + model.label)
 ]).controller('DeletingPointModalController', ['$modalInstance', '$scope',
   'points', 'point', ($modalInstance, $scope, points, point) ->
 
