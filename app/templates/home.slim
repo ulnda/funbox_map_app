@@ -12,5 +12,5 @@
       p ng-hide="points.length"
         | Список точек пуст.
 .map
-  ui-gmap-google-map center='map.center' zoom='map.zoom' events='map.events'
-    ui-gmap-markers models="markers" coords="'self'" icon="'icon'" click="markerClick"
+  ui-gmap-google-map center='options.map.center' zoom='options.map.zoom'
+    ui-gmap-markers models="points" coords="'self'" options="options.point" icon="'icon'" events="options.point.events"
