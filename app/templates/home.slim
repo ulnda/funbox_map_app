@@ -3,11 +3,8 @@
     .form 
       input.form-control type="text" placeholder="Введите название точки маршрута" ng-model="point.name"
   .points
-    .list-group
-      li.list-group-item Точка #1
-      li.list-group-item Точка #2
-      li.list-group-item Точка #3
-      li.list-group-item Точка #4
+    ul.list-group dnd-list="points"
+      li.list-group-item ng-repeat="p in points" dnd-draggable="p" dnd-effect-allowed="move" dnd-selected="selectedPoint = p" dnd-moved="points.splice($index, 1)" {{ p.label }}
 .map
   ui-gmap-google-map center='map.center' zoom='map.zoom' events='map.events'
     ui-gmap-markers models="markers" coords="'self'" icon="'icon'" click="markerClick"
