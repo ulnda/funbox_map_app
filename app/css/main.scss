@@ -35,3 +35,23 @@ $delimiter-width: 10px;
   }
 }
 
+.edit-in-place {
+  span {
+    cursor: pointer;
+  }
+
+ input {  
+    display: none;
+  }
+}
+
+.edit-in-place.active {
+  span {
+    display: none;
+  }
+
+  input {
+    display: inline-block;
+  }
+}
+

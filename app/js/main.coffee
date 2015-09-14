@@ -1,5 +1,5 @@
-module = angular.module('app', ['app.controllers', 'ui.bootstrap', 'ui.router', 
-  'uiGmapgoogle-maps', 'dndLists'])
+module = angular.module('app', ['app.controllers', 'app.directives',
+  'ui.bootstrap', 'ui.router', 'uiGmapgoogle-maps', 'dndLists'])
 
 module.config(['$locationProvider', '$stateProvider', '$urlRouterProvider',
   '$httpProvider', 'uiGmapGoogleMapApiProvider', ($locationProvider,
