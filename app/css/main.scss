@@ -1,0 +1,24 @@
+$delimiter-width: 10px; 
+
+.map {
+  float: left;
+  margin-left: $delimiter-width;
+
+  .angular-google-map-container { 
+    width: 750px;
+    height: 500px; 
+  }
+}
+
+.points-menu {
+  float: left;
+  width: 300px;
+
+  .points {
+    margin-top: $delimiter-width;
+  }
+
+  .new-point input {
+    width: 100%;
+  }
+}

@@ -31,6 +31,7 @@ gulp.task('clean', function() {
 gulp.task('styles', function() {
   return gulp.src('app/css/*.scss')
           .pipe(sass())
+          .pipe(minifyCSS())
           .pipe(gulp.dest(dist + "css/"));
 });
 
