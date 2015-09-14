@@ -1,10 +1,7 @@
 angular.module('app.controllers', []).controller('HomeController', ['$scope',
-  '$modal', ($scope, $modal) ->
-
-    lastPointId = 0
+  '$modal', 'Point', ($scope, $modal, Point) ->
 
     $scope.points = []
-    $scope.point = {}
 
     $scope.options =
       map:
@@ -26,11 +23,9 @@ angular.module('app.controllers', []).controller('HomeController', ['$scope',
         visible: true
 
     $scope.addNewPoint = ->
-      if $scope.point.label
-        angular.extend($scope.point, $scope.options.map.center)
-        $scope.point.id = lastPointId++
-        $scope.points.push angular.copy($scope.point)
-        $scope.point = {}
+      if $scope.label
+        $scope.points.push Point.build($scope.label, $scope.options.map.center)
+        $scope.label = null
     $scope.removePoint = (point) ->
       $modal.open
         templateUrl: 'templates/deleting_modal.html'

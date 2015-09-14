@@ -1,7 +1,7 @@
 .points-menu
   .new-point
     .form
-      input.form-control type="text" placeholder="Введите название точки маршрута" ng-model="point.label" ng-keyup="$event.keyCode == 13 && addNewPoint()"
+      input.form-control type="text" placeholder="Введите название точки маршрута" ng-model="label" ng-keyup="$event.keyCode == 13 && addNewPoint()"
   .points
     .with-points ng-show="points.length"
       ul.list-group dnd-list="points"
