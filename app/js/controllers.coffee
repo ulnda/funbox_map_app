@@ -21,6 +21,8 @@ angular.module('app.controllers', []).controller('HomeController', ['$scope',
         draggable: false
         geodesic: false
         visible: true
+      info:
+        show: false
 
     $scope.addNewPoint = ->
       if $scope.label
@@ -36,8 +38,11 @@ angular.module('app.controllers', []).controller('HomeController', ['$scope',
             $scope.points
           point: ->
             point
-    $scope.clickByPoint = (marker, eventName, model) ->
-      console.log('click:' + model.label)
+    $scope.clickByPoint = (marker, eventName, point) ->
+      $scope.options.info.point = point
+      $scope.options.info.show = true 
+    $scope.closeInfoWindow = ->
+      $scope.options.info.show = false
 ]).controller('DeletingPointModalController', ['$modalInstance', '$scope',
   'points', 'point', ($modalInstance, $scope, points, point) ->
 
