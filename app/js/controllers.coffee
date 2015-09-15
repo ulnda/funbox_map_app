@@ -1,5 +1,5 @@
 angular.module('app.controllers', []).controller('HomeController', ['$scope',
-  '$modal', 'Point', ($scope, $modal, Point) ->
+  '$rootScope', '$modal', 'Point', ($scope, $rootScope, $modal, Point) ->
 
     $scope.points = []
 
@@ -40,7 +40,18 @@ angular.module('app.controllers', []).controller('HomeController', ['$scope',
             point
     $scope.clickByPoint = (marker, eventName, point) ->
       $scope.options.info.point = point
-      $scope.options.info.show = true 
+      $scope.options.info.show = true
+      $scope.searched = false
+      $scope.address = ""
+      geocoder = new google.maps.Geocoder()
+      location =
+        lat: parseFloat(point.latitude)
+        lng: parseFloat(point.longitude)
+      geocoder.geocode { 'location': location }, (results, status) ->
+        $scope.searched = true
+        if status is google.maps.GeocoderStatus.OK
+          $scope.address = results[0].formatted_address
+        $scope.$digest()
     $scope.closeInfoWindow = ->
       $scope.options.info.show = false
 ]).controller('DeletingPointModalController', ['$modalInstance', '$scope',

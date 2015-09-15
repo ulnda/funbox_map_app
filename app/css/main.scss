@@ -11,14 +11,11 @@ $delimiter-width: 10px;
 
   .window-content {
     width: 300px;
+    font-size: 1.2em;
 
-    .preloader {
-      text-align: center;
-      span {
-        display: inline;
-        vertical-align: middle;
-        font-size: 1.2em;
-      }
+    span {
+      display: inline;
+      vertical-align: middle;
     }
   }
 }

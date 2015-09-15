@@ -40,7 +40,7 @@ gulp.task('scripts', function() {
   return gulp.src('app/js/**/*.coffee')
           .pipe(coffee())
           .pipe(jshint())
-          .pipe(uglify())
+          //.pipe(uglify())
           .pipe(gulp.dest(dist + "js/")); 
 });
 
@@ -53,7 +53,7 @@ gulp.task('images', function() {
 gulp.task('templates', function() {
   return gulp.src('app/**/*.slim')
           .pipe(slim({pretty: true}))
-          .pipe(minifyHTML())
+          //.pipe(minifyHTML())
           .pipe(gulp.dest(dist));
 });
 

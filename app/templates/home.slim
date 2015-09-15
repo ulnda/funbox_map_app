@@ -18,10 +18,18 @@
       .window-content
         h3.text-center
           | "{{ options.info.point.label }}"
-        .body
+        .body.text-center
           hr
-          .preloader
+          .preloader ng-hide="{{ searched }}"
             img src="img/preloader.gif"
             span
               strong Получение адреса...
+          .content
+            .with-address ng-show="{{ searched && address.length }}"
+              span
+                strong Адрес: 
+                | {{ address }}
+            .without-address ng-show="{{ searched && !address.length }}"
+              span
+                strong Адрес не найден.
     ui-gmap-polyline path="options.route.path" stroke="options.route.stroke" visible='options.route.visible' geodesic='options.route.geodesic' fit="false" editable="options.route.editable" draggable="options.route.draggable" static='true'
