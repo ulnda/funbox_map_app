@@ -12,7 +12,7 @@ angular.module('app.controllers', []).controller('HomeController', ['$scope',
       point:
         icon: 'img/marker.png'
         draggable: true
-      route: 
+      route:
         path: $scope.points
         stroke:
           color: '#FF0066'
@@ -47,7 +47,7 @@ angular.module('app.controllers', []).controller('HomeController', ['$scope',
       location =
         lat: parseFloat(point.latitude)
         lng: parseFloat(point.longitude)
-      geocoder.geocode { 'location': location }, (results, status) ->
+      geocoder.geocode { location: location }, (results, status) ->
         $scope.searched = true
         if status is google.maps.GeocoderStatus.OK
           $scope.address = results[0].formatted_address
