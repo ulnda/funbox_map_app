@@ -8,6 +8,16 @@ $delimiter-width: 10px;
     width: 750px;
     height: 500px; 
   }
+
+  .window-content {
+    width: 300px;
+    font-size: 1.2em;
+
+    span {
+      display: inline;
+      vertical-align: middle;
+    }
+  }
 }
 
 .points-menu {

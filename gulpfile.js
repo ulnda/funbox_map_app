@@ -40,7 +40,7 @@ gulp.task('scripts', function() {
   return gulp.src('app/js/**/*.coffee')
           .pipe(coffee())
           .pipe(jshint())
-          .pipe(uglify())
+          //.pipe(uglify())
           .pipe(gulp.dest(dist + "js/")); 
 });
 
@@ -53,7 +53,7 @@ gulp.task('images', function() {
 gulp.task('templates', function() {
   return gulp.src('app/**/*.slim')
           .pipe(slim({pretty: true}))
-          .pipe(minifyHTML())
+          //.pipe(minifyHTML())
           .pipe(gulp.dest(dist));
 });
 
@@ -61,7 +61,7 @@ gulp.task('templates', function() {
 gulp.task('bower_components', function() {
   var jsFilter = gulpFilter('*.js');
   var cssFilter = gulpFilter('*.css');
-  var fontFilter = gulpFilter(['*.eot', '*.woff', '*.svg', '*.ttf']);
+  var fontFilter = gulpFilter(['*.eot', '*.woff', '*.woff2', '*.svg', '*.ttf']);
 
   return gulp.src(mainBowerFiles())
           .pipe(jsFilter)

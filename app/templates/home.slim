@@ -1,7 +1,7 @@
 .points-menu
   .new-point
     .form
-      input.form-control type="text" placeholder="Введите название точки маршрута" ng-model="point.label" ng-keyup="$event.keyCode == 13 && addNewPoint()"
+      input.form-control type="text" placeholder="Введите название точки маршрута" ng-model="label" ng-keyup="$event.keyCode == 13 && addNewPoint()"
   .points
     .with-points ng-show="points.length"
       ul.list-group dnd-list="points"
@@ -12,5 +12,24 @@
       p ng-hide="points.length"
         | Список точек пуст.
 .map
-  ui-gmap-google-map center='map.center' zoom='map.zoom' events='map.events'
-    ui-gmap-markers models="markers" coords="'self'" icon="'icon'" click="markerClick"
+  ui-gmap-google-map center='options.map.center' zoom='options.map.zoom'
+    ui-gmap-markers models="points" coords="'self'" options="options.point" icon="'icon'" click="clickByPoint"
+    ui-gmap-window show="options.info.show" coords="options.info.point" closeClick="closeInfoWindow"
+      .window-content
+        h3.text-center
+          | "{{ options.info.point.label }}"
+        .body.text-center
+          hr
+          .preloader ng-hide="{{ searched }}"
+            img src="img/preloader.gif"
+            span
+              strong Получение адреса...
+          .content
+            .with-address ng-show="{{ searched && address.length }}"
+              span
+                strong Адрес: 
+                | {{ address }}
+            .without-address ng-show="{{ searched && !address.length }}"
+              span
+                strong Адрес не найден.
+    ui-gmap-polyline path="options.route.path" stroke="options.route.stroke" visible='options.route.visible' geodesic='options.route.geodesic' fit="false" editable="options.route.editable" draggable="options.route.draggable" static='true'
