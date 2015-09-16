@@ -1,5 +1,5 @@
 angular.module('app.controllers', []).controller('HomeController', ['$scope',
-  '$rootScope', '$modal', 'Point', 'Geocoder', ($scope, $rootScope, $modal, Point, Geocoder) ->
+  '$rootScope', '$modal', 'Point', ($scope, $rootScope, $modal, Point) ->
 
     $scope.points = []
 

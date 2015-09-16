@@ -58,14 +58,14 @@ describe('HomeController', function() {
       spyOn(geocoder, 'geocode').and.callThrough();
     }));
 
-    it('show result address message', function() {
+    it('set address after geocoding coordinates', function() {
       var location = { location: { lat: 45, lng: -73 } }
       $scope.geocode(geocoder, location);
       expect($scope.searched).toEqual(true);
       expect($scope.address).toEqual(address);
     });  
 
-    it('show no result address message', function() {
+    it('not set address without coordinates', function() {
       $scope.geocode(geocoder, null);
       expect($scope.searched).toEqual(true);
       expect($scope.address).toEqual(undefined);
