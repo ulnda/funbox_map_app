@@ -32,6 +32,7 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       'dist/js/*.js',
+      'http://maps.googleapis.com/maps/api/js?sensor=false&language=en',
       'node_modules/angular-mocks/angular-mocks.js',
       'test/*.js'
     ],
