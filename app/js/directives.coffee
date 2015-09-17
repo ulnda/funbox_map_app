@@ -11,11 +11,11 @@ angular.module('app.directives', []).directive('editInPlace', ->
     inputElement = angular.element(element.children()[1])
     element.addClass('edit-in-place')
 
-    deactivate = ->
+    $scope.deactivate = ->
       element.removeClass('active')
-    save = ->
+    $scope.save = ->
       $scope.value.label = $scope.newValue
-      deactivate()
+      $scope.deactivate()
       $scope.$digest()
     $scope.activate = ->
       $scope.newValue = $scope.value.label
@@ -23,8 +23,9 @@ angular.module('app.directives', []).directive('editInPlace', ->
       inputElement[0].focus()
 
     inputElement.prop 'onblur', ->
-      deactivate()
+      $scope.deactivate()
     inputElement.prop 'onkeyup', (e) ->
-      save() if e.keyCode is ENTER_KEYCODE
-      deactivate() if e.keyCode is ESCAPE_KEYCODE
+      switch e.keyCode
+        when ENTER_KEYCODE then $scope.save()
+        when ESCAPE_KEYCODE then $scope.deactivate()
 )
