@@ -1,0 +1,78 @@
+$delimiter-width: 10px; 
+
+.map {
+  float: left;
+  margin-left: $delimiter-width;
+
+  .angular-google-map-container { 
+    width: 750px;
+    height: 500px; 
+  }
+
+  .window-content {
+    width: 300px;
+    font-size: 1.2em;
+
+    span {
+      display: inline;
+      vertical-align: middle;
+    }
+  }
+}
+
+.points-menu {
+  float: left;
+  width: 300px;
+
+  .points {
+    margin-top: $delimiter-width;
+
+    ul {
+      .dndDraggingSource {
+        display: none;
+      }
+
+      .dndPlaceholder {
+        display: block;
+        background-color: #ddd;
+        min-height: 42px;
+      }
+    }
+
+    span.remove-point {
+      cursor: pointer;
+      float: right;
+    }
+
+    .without-points {
+      p {
+        font-weight: bold
+      }
+    }
+  }
+
+  .new-point input {
+    width: 100%;
+  }
+}
+
+.edit-in-place {
+  span {
+    cursor: pointer;
+  }
+
+ input {  
+    display: none;
+  }
+}
+
+.edit-in-place.active {
+  span {
+    display: none;
+  }
+
+  input {
+    display: inline-block;
+  }
+}
+
