@@ -13,7 +13,7 @@
         | Список точек пуст.
 .map
   ui-gmap-google-map center='options.map.center' zoom='options.map.zoom'
-    ui-gmap-markers models="points" coords="'self'" options="options.point" icon="'icon'" click="clickByPoint"
+    ui-gmap-markers models="points" coords="'self'" options="options.point" icon="'icon'" click="clickByPoint" doRebuildAll="true"
     ui-gmap-window show="options.info.show" coords="options.info.point" closeClick="closeInfoWindow"
       .window-content
         h3.text-center
